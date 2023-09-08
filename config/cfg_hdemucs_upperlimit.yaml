@@ -1,0 +1,93 @@
+targets:
+  - piano
+  - orch
+
+model: hdemucs
+
+audio:
+  chunk_dur: 12.0
+  mono: False
+  random_start_frame: False
+  random_gain: True
+  sample_rate: 44100
+
+defaults:
+  - _self_
+  - svd: default
+  - variant: default
+  - override hydra/hydra_logging: colorlog
+  - override hydra/job_logging: colorlog
+
+ema:
+  epoch: []
+  batch: []
+
+stft:
+  center: True
+  hop_size: 1024
+  window_size: 4096
+  wiener_iters: 0
+
+optim:
+  lr: 0.0003
+  loss: l1
+  weight_decay: 0
+  clip_grad: 0
+  momentum: 0.9
+  beta2: 0.999
+  optim: adam
+
+train:
+  batch_size: 16
+  num_epochs: 1000
+  patience: 140
+  max_batches:  # limit the number of batches per epoch, useful for debugging
+               # or if your dataset is gigantic.
+
+  lr_decay_gamma: 0.3
+  lr_decay_patience: 80
+
+misc:
+  num_workers: 10
+  num_prints: 4
+  show: false
+  verbose: false
+
+weights: [1., 1.]
+
+quant:
+  diffq:    # diffq penalty, typically 1e-4 or 3e-4
+  qat:      # use QAT with a fixed number of bits (not as good as diffq)
+  min_size: 0.2
+  group_size: 8
+
+svd:
+  penalty: 0
+  min_size: 0.1
+  dim: 1
+  niters: 2
+  powm: false
+  proba: 1
+  conv_only: false
+  convtr: false
+  bs: 1
+
+test:
+  save: False
+  best: True
+  workers: 2
+  every: 20
+  split: true
+  shifts: 1
+  overlap: 0.25
+  sdr: true
+  metric: 'loss'  # metric used for best model selection on the valid set, can also be nsdr
+  nonhq:   # path to non hq MusDB for evaluation
+
+flag:
+model_segment: 40
+debug: false
+time_dec: true
+freq_dec: true
+sep_conv_enc: false
+sep_conv_dec: false

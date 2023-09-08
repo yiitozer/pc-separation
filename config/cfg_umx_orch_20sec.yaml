@@ -1,0 +1,35 @@
+target: orch
+
+model:
+  type: umx
+  bandwidth: 16000
+
+audio:
+  chunk_dur: 20.0
+  mono: False
+  random_start_frame: True
+  random_gain: True
+  sample_rate: 44100
+  random_start_frame: True
+  random_silence: True
+  silence_dur: 4.0
+  fade_dur: 0.1
+
+stft:
+  center: True
+  hop_size: 1024
+  window_size: 4096
+
+train:
+  batch_size: 16
+  hidden_size: 512
+  lr: 0.001
+  lr_decay_gamma: 0.3
+  lr_decay_patience: 10
+  num_epochs: 1000
+  patience: 20
+  weight_decay: 0.00001
+
+
+
+

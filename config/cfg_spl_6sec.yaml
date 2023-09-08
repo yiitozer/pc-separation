@@ -1,0 +1,37 @@
+seed: 42
+targets:
+  - piano
+  - orch
+
+audio:
+  chunk_dur: 6.0
+  mono: False
+  random_start_frame: True
+  sample_rate: 44100
+
+model:
+  decoder_act: relu
+  decoder_dropout: True
+  encoder_act: elu
+  kernel_size: 5
+  mask_extension: zeros
+  max_freq_bins: 1024
+  max_time_frames: 512
+  separation_exponent: 2
+  stride: 2
+  type: spl
+
+stft:
+  center: True
+  hop_size: 1024
+  window_size: 4096
+
+train:
+  batch_size: 16
+  lr: 0.0001
+  eps: 0.00000001
+  lr_decay_gamma: 0.3
+  lr_decay_patience: 80
+  num_epochs: 1000
+  patience: 20
+

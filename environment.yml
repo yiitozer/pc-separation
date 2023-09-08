@@ -1,0 +1,13 @@
+name: pc-pipeline
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.8.*
+  - ipython
+  - jupyter
+
+  - pip:
+    - synctoolbox==1.3.*
