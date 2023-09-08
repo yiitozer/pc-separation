@@ -2,9 +2,8 @@ from setuptools import setup, find_packages
 with open('README.md', 'r') as fdesc:
     long_description = fdesc.read()
 
-setup(name='pc-pipeline',
+setup(name='pc-separation',
       version='1.0.0',
-      description='Python Package for Efficient, Robust, and Accurate Music Synchronization (SyncToolbox)',
       author='Yigitcan Özer',
       author_email='yigitcan.oezer@audiolabs-erlangen.de',
       url='',
@@ -34,16 +33,12 @@ setup(name='pc-pipeline',
                         'libfmp >= 1.2.0, < 2.0.0',
                         'synctoolbox >= 1.3.0',
                         'sox == 1.4.1',
-                        'tqdm >= 4.*.*',
+                        'tqdm >= 4.0.0',
                         'pyroomacoustics == 0.7.2',
                         'torch==1.13.0',
                         'torchaudio==0.13.0',
                         'torchvision==0.14.0'],
-      python_requires='>=3.8, <4.0',
-      extras_require={
-          'tests': ['pytest == 6.2.*'],
-          'docs': ['sphinx == 4.0.*',
-                   'sphinx_rtd_theme == 0.5.*']
-      }
+      python_requires='>=3.8, <4.0'
 )
+
 
