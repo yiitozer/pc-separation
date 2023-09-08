@@ -290,14 +290,3 @@ if __name__ == "__main__":
 
 
 
-# CONFIG, UMX
-
-# -b 8 -c config/cfg_umx_piano.yaml -d /media/yiitozer/Elements2/pc-pipeline/datasets/20221124_dataset_split/mapped/ -m umx -o /media/yiitozer/Elements2/pc-pipeline/checkpoints/umx/20230214_StValentin -t train_sample -v val_sample
-# -C /media/yiitozer/Elements2/pc-pipeline/checkpoints/umx/piano.pth
-
-# CONFIG, UNet
-# -b 8 -c config/cfg_unet.yaml -d /media/yiitozer/Elements2/pc-pipeline/datasets/20221124_dataset_split/mapped/
-# -m unet -o /media/yiitozer/Elements2/pc-pipeline/checkpoints/unet/20230214_StValentin -t train_sample -v val_sample
-
-
-
