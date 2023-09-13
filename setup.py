@@ -12,7 +12,6 @@ setup(name='pc-separation',
       long_description=long_description,
       long_description_content_type='text/markdown',
       classifiers=[
-          "License :: OSI Approved :: MIT License",
           "Programming Language :: Python",
           "Intended Audience :: Developers",
           "Topic :: Multimedia :: Sound/Audio :: Analysis",
