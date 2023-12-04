@@ -1,4 +1,4 @@
-### Source Separation of Piano Concertos Using Musically Motivated Augmentation Techniques
+### Source Separation of Piano Concertos
 This repository addresses the novel and rarely considered source separation task of decomposing piano concerto recordings into separate piano and orchestral tracks. 
 Being a genre written for a pianist typically accompanied by an ensemble or orchestra, piano concertos often involve an intricate interplay of the piano and the entire orchestra,
 leading to high spectro–temporal correlations between the constituent instruments. 
