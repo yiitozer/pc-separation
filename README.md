@@ -1,7 +1,7 @@
 <table border="0">
   <tr>
     <td><img src="web_content/thumbnail.png" alt="image description" width="1000"></td>
-    <td><h1>Source Separation of Piano Concertos</h1>
+    <td><h2>Source Separation of Piano Concertos</h2>
       This repository provides a pipeline for  decomposing piano concerto recordings into separate piano and orchestral tracks.      
       Our approach investigates open-source spectrogram- and waveform-based approaches as well as hybrid models operating in both spectrogram and waveform domains. 
 <br> <br>
