@@ -421,32 +421,3 @@ class SPLSolver(Solver):
                                                          length=mix.shape[-1])
 
         return estimates_dict
-
-
-    #def load_checkpoint(self,
-    #                    model_dir: str):
-    #    # TODO: Check whether this works correctly!!!!
-#
-    #    print(f'Loading the {self._model_type.upper()} model from {model_dir}')
-    #    model_path = Path(model_dir).expanduser()
-    #    with open(Path(model_path, self._model_type + ".json"), "r") as stream:
-    #        results = json.load(stream)
-    #    target_model_path = Path(model_path, self._model_type + ".chkpnt")
-    #    checkpoint = torch.load(target_model_path, map_location=self._device)
-    #    self._model.load_state_dict(checkpoint["state_dict"], strict=False)
-    #    self._optimizer.load_state_dict(checkpoint["optimizer"])
-#
-    #    # TODO: REMOVE THIS!!
-    #    try:
-    #        self._scheduler.load_state_dict(checkpoint["scheduler"])
-    #    except:
-    #        print('Scheduler not saved...')
-    #    self._train_losses = results["train_loss_history"]
-    #    self._val_losses = results["val_loss_history"]
-    #    # TODO!!
-    #    # self.train_times = results["train_time_history"]
-    #    # self.best_epoch = results["best_epoch"]
-    #    # self.es.best = results["best_loss"]
-    #    # self.es.num_bad_epochs = results["num_bad_epochs"]
-#
-    #    return results
