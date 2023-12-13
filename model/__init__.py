@@ -1,13 +1,11 @@
 import torch
 import torch.nn as nn
 
-from utils import Config
-
 
 class Separator(nn.Module):
     def __init__(self,
                  device: torch.device = torch.device('cuda'),
-                 model_cfg: Config = None):
+                 model_cfg = None):
         super(Separator, self).__init__()
         self._device = device
         self._model_cfg = model_cfg
