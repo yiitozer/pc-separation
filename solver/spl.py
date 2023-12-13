@@ -7,10 +7,10 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from typing import Tuple, Dict
 
+from . import Solver
 from dsp.filtering import wiener
-from solver import Solver
 from model.spl import Spleeter
-from utils import AverageMeter, Config
+from solver.utils import AverageMeter, Config
 
 EPSILON = 1e-10
 
@@ -349,7 +349,7 @@ class SPLSolver(Solver):
         """
         mix.shape = C, T
         """
-        X_c = self._stft(mix.unsqueeze(0))
+        X_c = self._stft(mix)
         num_samples, num_channels, num_bins, num_frames = X_c.shape
         _, X_mag = self._build_spec(X_c)
         model_outputs = self._model.forward(X_mag)
@@ -420,7 +420,7 @@ class SPLSolver(Solver):
                                                          onesided=True,
                                                          length=mix.shape[-1])
 
-        return model_outputs, mask_dict, masked_stfts, estimates_dict
+        return estimates_dict
 
 
     #def load_checkpoint(self,

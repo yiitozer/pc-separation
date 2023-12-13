@@ -10,7 +10,6 @@ import logging
 import os
 from pathlib import Path
 
-from dora.utils import write_and_rename
 import json
 
 import torch
@@ -19,23 +18,17 @@ import torch.nn.functional as F
 from tqdm import tqdm
 
 from . import Solver
-
 from model.demucs.demucs import Demucs
 from model.demucs.hdemucs import HDemucs, hpss
 from model.demucs.htdemucs import HTDemucs
 from model.demucs.states import capture_init
-
-from model.demucs.repitch import RepitchedWrapper
-from utils import AverageMeter, Config
-
-
-from model.demucs import augment, distrib, states, pretrained
+from model.demucs import distrib, states
 from model.demucs.apply import apply_model, apply_model_hpss
 from model.demucs.ema import ModelEMA
-from model.demucs.evaluate import evaluate, new_sdr
+from model.demucs.evaluate import new_sdr
 from model.demucs.svd import svd_penalty
 from model.demucs.utils import EMA
-
+from solver.utils import AverageMeter, Config
 
 class DemucsSolver(Solver):
     def __init__(self,
@@ -101,6 +94,9 @@ class DemucsSolver(Solver):
             windows_size=[2048, 1024, 512, 256, 128, 64, 32],
             hops_size=[1024, 512, 256, 128, 64, 32, 16]).to(self._device)
 
+        if not train:
+            self._model.eval()
+
     def _init_model(self):
         klass = {'demucs': Demucs,
                  'hdemucs': HDemucs,
@@ -121,32 +117,6 @@ class DemucsSolver(Solver):
                                 samplerate=self._model_cfg.audio.sample_rate,
                                 segment=self._model_cfg.model_segment).to(self._device)
 
-    def _serialize(self, epoch):
-        package = {}
-        package['state'] = self._model.state_dict()
-        package['optimizer'] = self._optimizer.state_dict()
-        package['history'] = self.history
-        package['best_state'] = self.best_state
-        package['cfg'] = self.args
-
-        for kind, emas in self._emas.items():
-            for k, ema in enumerate(emas):
-                package[f'ema_{kind}_{k}'] = ema.state_dict()
-        with write_and_rename(self.checkpoint_file) as tmp:
-            torch.save(package, tmp)
-
-        save_every = self.args.save_every
-        if save_every and (epoch + 1) % save_every == 0 and epoch + 1 != self.args.epochs:
-            with write_and_rename(self.folder / f'checkpoint_{epoch + 1}.th') as tmp:
-                torch.save(package, tmp)
-
-        if self.best_changed:
-            # Saving only the latest best model.
-            with write_and_rename(self.best_file) as tmp:
-                package = states.serialize_model(self._model, self.args)
-                package['state'] = self.best_state
-                torch.save(package, tmp)
-            self.best_changed = False
 
     def _format_train(self, metrics: dict) -> dict:
         """Formatting for train/valid metrics."""
@@ -554,8 +524,9 @@ class DemucsSolver(Solver):
         return self._test_metric
 
     def separate(self, mix):
-        estimates = self._model(mix)
-        estimates_dict = {target: estimates[:, target_idx, ...] for target_idx, target in enumerate(self._targets)}
+        with torch.no_grad():
+            estimates = self._model(mix)
+        estimates_dict = {target: estimates[:, target_idx, ...].squeeze(0) for target_idx, target in enumerate(self._targets)}
 
         return estimates_dict
 

@@ -11,7 +11,6 @@ from typing import Optional, Mapping
 from . import Separator
 from dsp.filtering import wiener
 from dsp.transforms import make_filterbanks, ComplexNorm
-from utils import bandwidth_to_max_bin
 
 
 class OpenUnmix(nn.Module):
@@ -334,3 +333,27 @@ class UMXSeparator(Separator):
                     new_estimates[key] = new_estimates[key] + estimates_dict[target]
             estimates_dict = new_estimates
         return estimates_dict
+
+    def separate(self,
+                 mix: Tensor):
+        estimates, _ = self.forward(mix)
+        estimates_dict = self.to_dict(estimates.squeeze(0))
+        return estimates_dict
+def bandwidth_to_max_bin(rate: float,
+                         n_fft: int,
+                         bandwidth: float) -> np.ndarray:
+    """Convert bandwidth to maximum bin count
+    Assuming lapped transforms such as STFT
+    Parameters
+    ----------
+        rate (int): Sample rate
+        n_fft (int): FFT length
+        bandwidth (float): Target bandwidth in Hz
+
+    Returns
+    -------
+        np.ndarray: maximum frequency bin
+    """
+    freqs = np.linspace(0, rate / 2, n_fft // 2 + 1, endpoint=True)
+
+    return np.max(np.where(freqs <= bandwidth)[0]) + 1

@@ -7,27 +7,12 @@ import torch
 from torch import nn
 from torch.nn import Parameter, Sequential, ReLU
 
-
-from dsp.transforms import TorchSTFT
-from model.umx import ComplexNorm, OpenUnmix
 from . import Solver
-from utils import AverageMeter, bandwidth_to_max_bin, Config
+from dsp.transforms import TorchSTFT
+from model.umx import ComplexNorm, OpenUnmix, bandwidth_to_max_bin
+from solver.utils import AverageMeter, Config
 
 EPSILON = 1e-10
-
-
-class SpectralFlux(nn.Module):
-    def __init__(self):
-        super(SpectralFlux, self).__init__()
-
-    def forward(self, X):
-        Y = torch.log(1 + 10 * torch.abs(torch.Tensor(X)))
-        Y_diff = torch.diff(Y, dim=3)
-        Y_diff_act = ReLU(inplace=False)(Y_diff)
-        nov = torch.sum(Y_diff_act, dim=2)
-        nov_norm = nov / nov.max()
-
-        return nov_norm
 
 
 class UMXSolver(Solver):

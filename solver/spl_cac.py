@@ -7,10 +7,10 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from typing import Tuple, Dict
 
+from . import Solver
 from dsp.filtering import wiener
-from solver import Solver
 from model.spl import Spleeter
-from utils import AverageMeter, Config
+from solver.utils import AverageMeter, Config
 
 EPSILON = 1e-10
 

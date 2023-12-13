@@ -1,13 +1,12 @@
 import json
+import os
+from pathlib import Path
 import torch
 from torch.utils.data import DataLoader
-from pathlib import Path
-
 
 from data.load import load_datasets
-from utils import Config, EarlyStopping
+from .utils import Config, EarlyStopping
 
-import os
 EPSILON = 1e-10
 
 
@@ -52,8 +51,9 @@ class Solver(object):
                                              **dataloader_kwargs)
 
             self._val_sampler = DataLoader(self._val_dataset,
-                                           batch_size=1, # TODO: WHYY???
+                                           batch_size=1,
                                            **dataloader_kwargs)
+
         self._model = None
         self._optimizer = None
         self._scheduler = None
@@ -106,7 +106,7 @@ class Solver(object):
 
         """
         model_path = os.path.join(checkpoint_dir, f'{self._model_type}_best.pth')
-        print(f'Loading the best {self._model_type} model from {model_path}.')
+        # print(f'Loading the best {self._model_type} model from {model_path}.')
         self._model.load_state_dict(torch.load(os.path.join(checkpoint_dir, f'{self._model_type}_best.pth')))
 
     def load_checkpoint(self,
@@ -162,6 +162,3 @@ class Solver(object):
                     params: dict):
         with open(Path(self._output_dir, f'{self._checkpoint_filename}.json'), 'w') as outfile:
             outfile.write(json.dumps(params, indent=4, sort_keys=True))
-
-
-
