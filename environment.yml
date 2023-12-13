@@ -1,13 +1,31 @@
-name: pc-pipeline
+name: pc-separation
 
 channels:
   - defaults
   - conda-forge
+  - pytorch
 
 dependencies:
-  - python=3.8.*
+  - python>=3.8.*
+  - pip
+  - numpy<1.24.0
+  - scipy
+  - matplotlib
   - ipython
   - jupyter
+  - pytorch::pytorch
+  - pytorch::torchvision
+  - pytorch::torchaudio
 
   - pip:
-    - synctoolbox==1.3.*
+    - synctoolbox>=1.3.2
+    - libfmp
+    - libtsm
+    - mir-eval
+    - librosa
+    - pysoundfile
+    - asteroid
+    - mmap_ninja
+    - dora-search
+    - diffq
+    - omegaconf
