@@ -169,28 +169,3 @@ class UMXSolver(Solver):
             self._val_losses.append(val_loss)
 
         return val_loss
-
-    #def save_checkpoint(self,
-    #                    epoch: int,
-    #                    best_loss: float,
-    #                    is_best: bool):
-    #    # save full checkpoint including optimizer
-    #    checkpoint_dict = {
-    #            'epoch': epoch,
-    #            'state_dict': self._model.state_dict(),
-    #            'best_loss': best_loss,
-    #            'optimizer': self._optimizer.state_dict(),
-    #            'scheduler': self._scheduler.state_dict(),
-    #    }
-#
-    #    torch.save(checkpoint_dict, os.path.join(self._output_dir, self._target + f'.chkpnt'))
-#
-    #    if is_best:
-    #        # save just the weights
-    #        torch.save(checkpoint_dict['state_dict'], Path(self._output_dir, self._target + "_best.pth"))
-
-    # def save_params(self,
-    #                 params: dict):
-    #     with open(Path(self._output_dir, self._target + '.json'), 'w') as outfile:
-    #         outfile.write(json.dumps(params, indent=4, sort_keys=True))
-
