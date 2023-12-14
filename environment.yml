@@ -18,11 +18,12 @@ dependencies:
   - pytorch::torchaudio
 
   - pip:
+    - librosa
     - synctoolbox>=1.3.2
+    - madmom
     - libfmp
     - libtsm
     - mir-eval
-    - librosa
     - pysoundfile
     - asteroid
     - mmap_ninja
