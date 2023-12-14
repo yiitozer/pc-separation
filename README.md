@@ -24,6 +24,7 @@ For further information and to listen to audio examples, please visit our [demo 
 
 
 ## Unison data generation
+<img src="web_content/unison_mixing.png" alt="image description" width="600">
 To be continued :ghost:
 
 ## Training
