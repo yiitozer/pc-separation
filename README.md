@@ -32,10 +32,18 @@ To be continued :ghost:
 
 ## References
 
-F. Stöter, S. Uhlich, A. Liutkus, and Y. Mitsufuji, [Open-Unmix – A reference implementation for music source separation](https://github.com/sigsep/open-unmix-pytorch), Journal of Open Source Software, vol. 4, no. 41, 2019.
+[1] Y. Özer and M. Müller, [Source separation of piano concertos with test-time adaptation](https://audiolabs-erlangen.de/resources/MIR/2022-PianoSep), in Proceedings of the International Society for Music Information Retrieval Conference (ISMIR), Bengaluru, India, 2022, pp. 493–500.
 
-R. Hennequin, A. Khlif, F. Voituret, and M. Moussallam, [Spleeter: a fast and efficient music source separation tool with pre-trained models](https://github.com/deezer/spleeter/tree/master), Journal of Open Source Software, vol. 5, no. 50, p. 2154, 2020, Deezer Research. 
+[2] Y. Özer, S. Schwär, V. Arifi-Müller, J. Lawrence, E. Sen, and M. Müller, [Piano Concerto Dataset (PCD): A multitrack dataset of piano concertos](https://www.audiolabs-erlangen.de/resources/MIR/PCD), Transactions of the International Society for Music Information Retrieval (TISMIR), vol. 6, no. 1, pp. 75–88, 2023.
 
-A. Défossez, N. Usunier, L. Bottou, and F. R. Bach, [Music source separation in the waveform domain](https://github.com/facebookresearch/demucs), 2019. 
+[3] F. Stöter, S. Uhlich, A. Liutkus, and Y. Mitsufuji, [Open-Unmix – A reference implementation for music source separation](https://github.com/sigsep/open-unmix-pytorch), Journal of Open Source Software, vol. 4, no. 41, 2019.
 
-A. Défossez, [Hybrid spectrogram and waveform source separation](https://github.com/facebookresearch/demucs), in Proceedings of the ISMIR 2021 Workshop on Music Source Separation, Online, 2021.
+[4] R. Hennequin, A. Khlif, F. Voituret, and M. Moussallam, [Spleeter: a fast and efficient music source separation tool with pre-trained models](https://github.com/deezer/spleeter/tree/master), Journal of Open Source Software, vol. 5, no. 50, p. 2154, 2020, Deezer Research. 
+
+[5] A. Défossez, N. Usunier, L. Bottou, and F. R. Bach, [Music source separation in the waveform domain](https://github.com/facebookresearch/demucs), 2019. 
+
+[6] A. Défossez, [Hybrid spectrogram and waveform source separation](https://github.com/facebookresearch/demucs), in Proceedings of the ISMIR 2021 Workshop on Music Source Separation, Online, 2021.
+
+[7] Meinard Müller, Yigitcan Özer, Michael Krause, Thomas Prätzlich, and Jonathan Driedger. [Sync Toolbox: A Python Package for Efficient, Robust, and Accurate Music Synchronization](https://github.com/meinardmueller/synctoolbox), Journal of Open Source Software (JOSS), 6(64), 2021.
+
+[8] S. Böck, F. Korzeniowski, J. Schlüter, F. Krebs, and G. Widmer, [madmom: A new Python audio and music signal processing library](https://github.com/CPJKU/madmom), in Proceedings of the ACM International Conference on Multimedia (ACM-MM), Amsterdam, The Netherlands, 2016, pp. 1174–1178.
