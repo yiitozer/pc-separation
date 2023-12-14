@@ -46,4 +46,6 @@ To be continued :ghost:
 
 [7] Meinard Müller, Yigitcan Özer, Michael Krause, Thomas Prätzlich, and Jonathan Driedger. [Sync Toolbox: A Python Package for Efficient, Robust, and Accurate Music Synchronization](https://github.com/meinardmueller/synctoolbox), Journal of Open Source Software (JOSS), 6(64), 2021.
 
-[8] S. Böck, F. Korzeniowski, J. Schlüter, F. Krebs, and G. Widmer, [madmom: A new Python audio and music signal processing library](https://github.com/CPJKU/madmom), in Proceedings of the ACM International Conference on Multimedia (ACM-MM), Amsterdam, The Netherlands, 2016, pp. 1174–1178.
+[8] T. Prätzlich, J. Driedger, and M. Müller, “Memory-restricted multiscale dynamic time warping,” in Proceedings of the IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), Shanghai, China, March 2016, pp. 569–573.
+
+[9] S. Böck, F. Korzeniowski, J. Schlüter, F. Krebs, and G. Widmer, [madmom: A new Python audio and music signal processing library](https://github.com/CPJKU/madmom), in Proceedings of the ACM International Conference on Multimedia (ACM-MM), Amsterdam, The Netherlands, 2016, pp. 1174–1178.
