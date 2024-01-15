@@ -20,7 +20,7 @@ conda env create -f environment.yml
 ## Separating piano concertos
 The notebook [``Separator.ipynb``](https://github.com/yiitozer/pc-separation/blob/master/Separator.ipynb) showcases an exemplary application. It includes downloading [pretrained weights](https://drive.google.com/drive/folders/1-zcdkHWUcfehaTjoxp-eCjAjZevDGxSu) of UMX, SPL, DMC, and HDMC models and the test dataset [PCD](https://www.audiolabs-erlangen.de/resources/MIR/PCD) are also provided in the notebook.
 
-For further information and to listen to audio examples, please visit our [demo website](https://audiolabs-erlangen.de/resources/MIR/2023-PianoConcertoSeparation).
+For further information and to listen to audio examples, please visit our [demo website](https://audiolabs-erlangen.de/resources/MIR/2024-TASLP-PianoConcertoSeparation).
 
 
 ## Unison data generation
