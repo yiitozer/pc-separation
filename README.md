@@ -33,7 +33,7 @@ To be continued :ghost:
 
 ## References
 
-[1] Y. Özer and M. Müller “[Source Separation of Piano Concertos Using Musically Motivated Augmentation Techniques](https://www.audiolabs-erlangen.de/resources/MIR/2024-TASLP-PianoConcertoSeparation), in IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP), 32: 1214–1225, 2024. 
+[1] Y. Özer and M. Müller “[Source Separation of Piano Concertos Using Musically Motivated Augmentation Techniques](https://www.audiolabs-erlangen.de/resources/MIR/2024-TASLP-PianoConcertoSeparation),“ in IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP), 32: 1214–1225, 2024. 
 
 [2] Y. Özer and M. Müller, “[Source separation of piano concertos with test-time adaptation](https://audiolabs-erlangen.de/resources/MIR/2022-PianoSep),“ in Proceedings of the International Society for Music Information Retrieval Conference (ISMIR), Bengaluru, India, 2022, pp. 493–500.
 
