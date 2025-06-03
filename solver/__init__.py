@@ -107,7 +107,9 @@ class Solver(object):
         """
         model_path = os.path.join(checkpoint_dir, f'{self._model_type}_best.pth')
         # print(f'Loading the best {self._model_type} model from {model_path}.')
-        self._model.load_state_dict(torch.load(os.path.join(checkpoint_dir, f'{self._model_type}_best.pth')))
+        self._model.load_state_dict(torch.load(os.path.join(checkpoint_dir, 
+                                                            f'{self._model_type}_best.pth',), 
+                                                            map_location=self._device))
 
     def load_checkpoint(self,
                         model_dir: str):
