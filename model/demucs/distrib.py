@@ -14,20 +14,9 @@ from torch.utils.data.distributed import DistributedSampler
 from torch.utils.data import DataLoader, Subset
 from torch.nn.parallel.distributed import DistributedDataParallel
 
-from dora import distrib as dora_distrib
-
 logger = logging.getLogger(__name__)
 rank = 0
 world_size = 1
-
-
-def init():
-    global rank, world_size
-    if not torch.distributed.is_initialized():
-        dora_distrib.init()
-    rank = dora_distrib.rank()
-    world_size = dora_distrib.world_size()
-
 
 def average(metrics, count=1.):
     if isinstance(metrics, dict):
