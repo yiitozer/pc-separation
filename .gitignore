@@ -1,4 +1,4 @@
-.pyc
-.pth
+*.pyc
+*.pth
 **/__pycache__/
 PCD/*
