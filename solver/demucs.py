@@ -6,14 +6,11 @@
 # LICENSE file in the root directory of this source tree.
 """Main training script entry point"""
 import asteroid.losses.multi_scale_spectral
-import logging
-import os
 from pathlib import Path
 
 import json
 
 import torch
-from torch.nn import CosineSimilarity
 import torch.nn.functional as F
 from tqdm import tqdm
 
@@ -21,14 +18,13 @@ from . import Solver
 from model.demucs.demucs import Demucs
 from model.demucs.hdemucs import HDemucs, hpss
 from model.demucs.htdemucs import HTDemucs
-from model.demucs.states import capture_init
 from model.demucs import distrib, states
 from model.demucs.apply import apply_model, apply_model_hpss
 from model.demucs.ema import ModelEMA
 from model.demucs.evaluate import new_sdr
 from model.demucs.svd import svd_penalty
 from model.demucs.utils import EMA
-from solver.utils import AverageMeter, Config
+from solver.utils import Config
 
 class DemucsSolver(Solver):
     def __init__(self,
