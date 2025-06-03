@@ -27,7 +27,6 @@ dependencies:
     - pysoundfile
     - asteroid
     - mmap_ninja
-    - dora-search
     - diffq
     - omegaconf
     - gdown
