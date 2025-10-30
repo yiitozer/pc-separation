@@ -339,6 +339,8 @@ class UMXSeparator(Separator):
         estimates, _ = self.forward(mix)
         estimates_dict = self.to_dict(estimates.squeeze(0))
         return estimates_dict
+
+
 def bandwidth_to_max_bin(rate: float,
                          n_fft: int,
                          bandwidth: float) -> np.ndarray:
