@@ -1,22 +1,21 @@
 name: pc-separation
-
 channels:
   - defaults
   - conda-forge
   - pytorch
-
 dependencies:
   - python>=3.8.*
   - pip
   - numpy<1.24.0
   - scipy
   - matplotlib
+  - pandas
+  - cython
   - ipython
   - jupyter
   - pytorch::pytorch
   - pytorch::torchvision
   - pytorch::torchaudio
-
   - pip:
     - librosa
     - synctoolbox>=1.3.2
